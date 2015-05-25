@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29k-vY-6fF">
-                                <rect key="frame" x="250" y="347" width="100" height="60"/>
+                                <rect key="frame" x="16" y="9" width="90" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="JDg-jb-iRV"/>
                                     <constraint firstAttribute="width" constant="100" id="t48-QH-KF4"/>
@@ -27,6 +28,12 @@
                                 <state key="normal" title="Select Media">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JDg-jb-iRV"/>
+                                        <exclude reference="t48-QH-KF4"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="selectMediaButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tfq-Aj-Xf3"/>
                                 </connections>
@@ -45,17 +52,6 @@
                                     <constraint firstAttribute="height" constant="128" id="gYx-A7-o5K"/>
                                 </constraints>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hmP-Qg-ERi">
-                                <rect key="frame" x="16" y="92" width="568" height="29"/>
-                                <segments>
-                                    <segment title="Both"/>
-                                    <segment title="Image"/>
-                                    <segment title="Video"/>
-                                </segments>
-                                <connections>
-                                    <action selector="mediaTypeSegmentedControlValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Jyv-W5-WSH"/>
-                                </connections>
-                            </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JA5-CL-8Dz">
                                 <rect key="frame" x="16" y="165" width="568" height="29"/>
                                 <segments>
@@ -205,6 +201,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hmP-Qg-ERi">
+                                <rect key="frame" x="16" y="92" width="568" height="29"/>
+                                <segments>
+                                    <segment title="Both"/>
+                                    <segment title="Image"/>
+                                    <segment title="Video"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mediaTypeSegmentedControlValueChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Jyv-W5-WSH"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -212,12 +219,15 @@
                             <constraint firstAttribute="centerX" secondItem="dMs-AN-35V" secondAttribute="centerX" id="36M-IJ-C5z"/>
                             <constraint firstItem="JA5-CL-8Dz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="3h1-x1-zqX"/>
                             <constraint firstItem="hmP-Qg-ERi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="3vE-uZ-Oc6"/>
+                            <constraint firstItem="7Ph-J8-Mpr" firstAttribute="leading" secondItem="29k-vY-6fF" secondAttribute="trailing" constant="59" id="5n3-fW-rgk"/>
                             <constraint firstAttribute="centerX" secondItem="cRh-9B-H3G" secondAttribute="centerX" id="FOr-Le-85f"/>
                             <constraint firstItem="hmP-Qg-ERi" firstAttribute="top" secondItem="cRh-9B-H3G" secondAttribute="bottom" constant="8" id="K4W-f5-YpV"/>
                             <constraint firstItem="JA5-CL-8Dz" firstAttribute="top" secondItem="uIq-RE-VZ0" secondAttribute="bottom" constant="8" id="LFB-BG-fuB"/>
+                            <constraint firstItem="29k-vY-6fF" firstAttribute="baseline" secondItem="7Ph-J8-Mpr" secondAttribute="baseline" id="LZd-Bl-rhR"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Ja9-vh-Yb7" secondAttribute="bottom" constant="20" id="Mcc-am-tSD"/>
                             <constraint firstAttribute="centerX" secondItem="mN2-Lc-YYC" secondAttribute="centerX" id="PXh-1q-SS8"/>
                             <constraint firstItem="Xs1-QE-QBN" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Q2S-l5-PEs"/>
+                            <constraint firstItem="29k-vY-6fF" firstAttribute="leading" secondItem="hmP-Qg-ERi" secondAttribute="leading" id="QuF-at-02a"/>
                             <constraint firstItem="jFa-O6-Y3i" firstAttribute="top" secondItem="dMs-AN-35V" secondAttribute="bottom" constant="8" id="S1a-MC-GUI"/>
                             <constraint firstItem="uIq-RE-VZ0" firstAttribute="top" secondItem="hmP-Qg-ERi" secondAttribute="bottom" constant="16" id="Tlc-qb-xb9"/>
                             <constraint firstItem="Xs1-QE-QBN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="U6F-SJ-XhM"/>
@@ -225,12 +235,13 @@
                             <constraint firstItem="JA5-CL-8Dz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="YB9-aa-xaA"/>
                             <constraint firstItem="mN2-Lc-YYC" firstAttribute="top" secondItem="JA5-CL-8Dz" secondAttribute="bottom" constant="16" id="YrQ-Be-7al"/>
                             <constraint firstAttribute="centerX" secondItem="hmP-Qg-ERi" secondAttribute="centerX" id="bBM-vl-wau"/>
-                            <constraint firstItem="29k-vY-6fF" firstAttribute="top" secondItem="Xs1-QE-QBN" secondAttribute="bottom" constant="16" id="dTF-B6-FGF"/>
-                            <constraint firstAttribute="centerX" secondItem="29k-vY-6fF" secondAttribute="centerX" id="eQG-vF-SmL"/>
+                            <constraint firstItem="29k-vY-6fF" firstAttribute="top" secondItem="Xs1-QE-QBN" secondAttribute="bottom" constant="-322" id="dTF-B6-FGF"/>
+                            <constraint firstAttribute="centerX" secondItem="29k-vY-6fF" secondAttribute="centerX" constant="234" id="eQG-vF-SmL"/>
                             <constraint firstItem="hmP-Qg-ERi" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="fSL-fi-Zi9"/>
                             <constraint firstItem="cRh-9B-H3G" firstAttribute="top" secondItem="7Ph-J8-Mpr" secondAttribute="bottom" constant="14" id="fXa-Wh-tkA"/>
                             <constraint firstItem="7Ph-J8-Mpr" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="iwO-a5-z5L"/>
                             <constraint firstAttribute="centerX" secondItem="Xs1-QE-QBN" secondAttribute="centerX" id="jWf-Az-9KR"/>
+                            <constraint firstItem="hmP-Qg-ERi" firstAttribute="top" secondItem="29k-vY-6fF" secondAttribute="bottom" constant="23" id="jX8-SD-94u"/>
                             <constraint firstItem="jFa-O6-Y3i" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="pWl-Hc-ijb"/>
                             <constraint firstAttribute="centerX" secondItem="uIq-RE-VZ0" secondAttribute="centerX" id="pdx-Dn-IMu"/>
                             <constraint firstItem="Ja9-vh-Yb7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="rGr-zt-ERd"/>
@@ -238,7 +249,15 @@
                             <constraint firstItem="jFa-O6-Y3i" firstAttribute="width" secondItem="Ja9-vh-Yb7" secondAttribute="width" id="tDV-MA-ccz"/>
                             <constraint firstItem="jFa-O6-Y3i" firstAttribute="leading" secondItem="Ja9-vh-Yb7" secondAttribute="trailing" constant="8" id="tFF-uV-MdK"/>
                             <constraint firstAttribute="centerX" secondItem="JA5-CL-8Dz" secondAttribute="centerX" id="uzH-Ch-0Gw"/>
+                            <constraint firstItem="29k-vY-6fF" firstAttribute="firstBaseline" secondItem="7Ph-J8-Mpr" secondAttribute="baseline" id="vvS-Tu-NA2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dTF-B6-FGF"/>
+                                <exclude reference="eQG-vF-SmL"/>
+                                <exclude reference="5n3-fW-rgk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Ja9-vh-Yb7" id="Yo2-w6-q6h"/>
