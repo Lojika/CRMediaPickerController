@@ -26,6 +26,7 @@ typedef NS_OPTIONS(NSInteger, CRMediaPickerControllerSourceType) {
 @protocol CRMediaPickerControllerDelegate <NSObject>
 
 @optional
+- (void)CRMediaPickerController:(CRMediaPickerController *)mediaPickerController didFinishPickingImage:(UIImage *)image error:(NSError *)error;
 - (void)CRMediaPickerController:(CRMediaPickerController *)mediaPickerController didFinishPickingAsset:(ALAsset *)asset error:(NSError *)error;
 - (void)CRMediaPickerControllerDidCancel:(CRMediaPickerController *)mediaPickerController;
 @end

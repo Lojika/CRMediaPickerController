@@ -157,6 +157,12 @@
 
 #pragma mark - CPDMediaPickerControllerDelegate
 
+- (void)CRMediaPickerController:(CRMediaPickerController *)mediaPickerController didFinishPickingImage:(UIImage *)image error:(NSError *)error {
+    if (!error) {
+        self.imageView.image = image;
+    }
+}
+
 - (void)CRMediaPickerController:(CRMediaPickerController *)mediaPickerController didFinishPickingAsset:(ALAsset *)asset error:(NSError *)error
 {
     if (!error) {

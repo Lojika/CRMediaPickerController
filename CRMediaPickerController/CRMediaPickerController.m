@@ -529,28 +529,36 @@
             [self saveEditedImage:image failureblock:failureblock successblock:successblock];
 
         } else {
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(CRMediaPickerController:didFinishPickingImage:error:)]) {
+                [picker.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                    [self.delegate CRMediaPickerController:self didFinishPickingImage:image error:nil];
+                }];
+            } else {
+                [picker.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+            }
 
-            void (^failureblock)(NSError *) = ^(NSError *err) {
-                if (self.delegate && [self.delegate respondsToSelector:@selector(CRMediaPickerController:didFinishPickingAsset:error:)]) {
-                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:^{
-                        [self.delegate CRMediaPickerController:self didFinishPickingAsset:nil error:err];
-                    }];
-                } else {
-                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-                }
-            };
-
-            void (^successblock)(ALAsset *) = ^(ALAsset *asset) {
-                if (self.delegate && [self.delegate respondsToSelector:@selector(CRMediaPickerController:didFinishPickingAsset:error:)]) {
-                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:^{
-                        [self.delegate CRMediaPickerController:self didFinishPickingAsset:asset error:nil];
-                    }];
-                } else {
-                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-                }
-            };
-
-            [self saveEditedImage:image failureblock:failureblock successblock:successblock];
+//            void (^failureblock)(NSError *) = ^(NSError *err) {
+//                if (self.delegate && [self.delegate respondsToSelector:@selector(CRMediaPickerController:didFinishPickingAsset:error:)]) {
+//                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//                        [self.delegate CRMediaPickerController:self didFinishPickingAsset:nil error:err];
+//                    }];
+//                } else {
+//                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+//                }
+//            };
+//
+//            void (^successblock)(ALAsset *) = ^(ALAsset *asset) {
+//                if (self.delegate && [self.delegate respondsToSelector:@selector(CRMediaPickerController:didFinishPickingAsset:error:)]) {
+//                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//                        [self.delegate CRMediaPickerController:self didFinishPickingAsset:asset error:nil];
+//                    }];
+//                } else {
+//                    [picker.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+//                }
+//            };
+//
+//            [self saveEditedImage:image failureblock:failureblock successblock:successblock];
 
 //            [assetsLibrary assetForURL:[info objectForKey:UIImagePickerControllerReferenceURL] resultBlock:^(ALAsset *asset) {
 //
